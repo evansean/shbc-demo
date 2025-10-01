@@ -1,0 +1,170 @@
+/* ===== Global reset & scroll lock ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden !important;    /* hard-disable scrollbars */
+  overscroll-behavior: none;
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ===== Full-page background container ===== */
+.page {
+  position: fixed;                /* lock to viewport */
+  inset: 0;
+  width: 100vw;
+  height: 100vh;                  /* fallback */
+  height: 100dvh;                 /* modern browsers */
+  background: url("NHG_backdrop2.png") center/cover no-repeat fixed;
+  color: #fff;
+}
+
+/* ===== Row that positions both panels ===== */
+.panel-row {
+  position: absolute;
+  top: 24vh;                      /* move panels down */
+  left: 12vw;                     /* outer margins */
+  right: 12vw;
+
+  display: flex;
+  justify-content: space-between; /* push panels to sides */
+  align-items: flex-start;
+  gap: 2vw;                       /* gap between panels */
+  overflow: visible;              /* keep card shadows visible */
+}
+
+/* ===== Panel / card ===== */
+.form-card {
+  width: 32vw;
+  min-width: 960px;
+  min-height: 960px;
+  background: rgba(0, 54, 74, 0.85);
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.35);
+  padding: 24px 28px;
+  overflow: visible;
+}
+
+/* ===== Title (two lines, centered) ===== */
+.title-wrapper {
+  text-align: center;
+  margin: 0 0 16px 0;
+}
+.title-main {
+  font-size: 64px;
+  line-height: 1.05;
+  font-weight: 800;
+  margin: 0 0 10px 0;             /* space before subtitle / inputs */
+}
+.title-sub {
+  font-size: 52px;
+  line-height: 1.2;
+  font-weight: 600;
+  margin: 0 0 30px 0;
+}
+
+/* ===== Input rows ===== */
+.form-card .row {
+  display: flex;
+  gap: 15px;
+  margin: 0 50px 15px 50px;
+}
+
+/* Make each child of .row share the row width evenly */
+.form-card .row > .inp,
+.form-card .row > .input-group {
+  flex: 1 1 0;                    /* <- key: equal column widths */
+}
+
+/* Layout rows/columns */
+.row{
+  display:flex;
+  gap:15px;
+  margin: 0 50px 15px 50px;
+}
+.col{
+  flex:1 1 0;             /* each side takes equal width */
+}
+
+/* Inputs */
+.inp{
+  width:100%;
+  height:32px;
+  border-radius:4px;
+  border:1px solid #cfd7df;
+  padding:6px 10px;
+  font-size:24px;
+}
+
+/* Grouped Snellen inputs (Num / Den) */
+.input-group{
+  display:flex;
+  align-items:center;
+  gap:8px;                /* space around the slash */
+}
+.input-group .inp-small{
+  flex:1 1 0;             /* Num and Den share the right column evenly */
+}
+.input-group .slash{
+  display:inline-block;
+  width:auto;
+  padding:0 2px;
+  font-size:24px;
+  line-height:1;
+}
+
+
+/* ===== Buttons (flush right) ===== */
+.form-card .buttons {
+  display: flex;
+  justify-content: flex-end;      /* flush right */
+  gap: 10px;
+  margin: 36px 50px 14px;
+}
+.form-card .btn {
+  padding: 7px 16px;
+  font-size: 21px;
+  background: #0d2a44;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.form-card .btn.btn-secondary {
+  background: #2c3e50;
+}
+
+/* ===== Result blocks ===== */
+.result {
+  display: grid;
+  margin: 0 50px 25px 50px;
+  gap: 24px;
+}
+.result-msg {
+  background: rgba(0,0,0,.35);
+  font-size: 36px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-align: center;
+}
+.result-value {
+  font-size: 56px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* ===== Hide Dash dev UI overlays ===== */
+._dash-error,
+._dash-undo-redo,
+.dash-debug-menu {
+  display: none !important;
+}

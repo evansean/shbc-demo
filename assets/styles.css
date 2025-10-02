@@ -21,8 +21,9 @@ html, body {
   width: 100vw;
   height: 100vh;                  /* fallback */
   height: 100dvh;                 /* modern browsers */
-  background: url("NHG_backdrop2.png") center/cover no-repeat fixed;
+  background: url("NHG_backdrop2.png") center/contain no-repeat fixed;
   color: #fff;
+  background-color: #205785;
 }
 
 /* ===== Row that positions both panels ===== */

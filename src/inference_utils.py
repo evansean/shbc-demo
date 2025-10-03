@@ -5,14 +5,8 @@ import numpy as np
 from PIL import Image
 from src import det_utils, seg_utils
 
-# DET_CHECKPOINT_PATH = "models/det.bin"
-# SEG_CHECKPOINT_PATH = "models/seg.bin"
 DET_SIZE = 800
 SEG_SIZE = 256
-
-# # preload models once
-# det_model = det_utils.load_model(DET_CHECKPOINT_PATH, adapt_mode=None)
-# seg_model = seg_utils.load_model(SEG_CHECKPOINT_PATH, adapt_mode=None)
 
 def run_inference_on_image(image_path, det_model, seg_model, output_folder="output_single", use_padding=False):
     os.makedirs(output_folder, exist_ok=True)
